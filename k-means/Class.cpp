@@ -14,26 +14,26 @@
  */
 void compute_classes(const std::vector<std::array<float, Nv>>& Vec, const std::vector<std::array<float, Nv>>& old_Center, std::array<std::vector<int>, Nc>& Classes)
 {
-	for (int i = 0; i < Nc; i += 1)													///< Clears contents of `Classes` variable
+	for (int i = 0; i < Nc; i += 1)								///< Clears contents of `Classes` variable
 	{
-		Classes[i].clear();															///< Prevents garbage processing
-		Classes[i].reserve((int) N/Nc);												///< Optimizes array with high probability
+		Classes[i].clear();								///< Prevents garbage processing
+		Classes[i].reserve((int) N/Nc);							///< Optimizes array with high probability
 	}
-	int argmin_idx = -1;															///< Initializes \argmin index
+	int argmin_idx = -1;									///< Initializes \argmin index
 	long double argmin_val = std::numeric_limits<long int>::max() + 0.0;			///< Initializes \argmin value
-	for (int i = 0; i < N; i += 1)													///< Loop through `Vec`
+	for (int i = 0; i < N; i += 1)								///< Loop through `Vec`
 	{
-		for (int j = 0; j < Nc; j += 1)												///< Loop through `old_Center`
+		for (int j = 0; j < Nc; j += 1)							///< Loop through `old_Center`
 		{
 			long double temp_eucl_dist = eucl_diff(Vec.at(i), old_Center.at(j));	///< Compute Euclidean distance between parsed `Vec` element and parsed `old_Center` element
-			if (argmin_val > temp_eucl_dist)										///< Checks if this Euclidean distance is so far the smallest 
+			if (argmin_val > temp_eucl_dist)					///< Checks if this Euclidean distance is so far the smallest 
 			{
-				argmin_val = temp_eucl_dist;										///< Updates \argmin value
-				argmin_idx = j;														///< Updates \argmin index
+				argmin_val = temp_eucl_dist;					///< Updates \argmin value
+				argmin_idx = j;							///< Updates \argmin index
 			}
 		}
-		Classes[argmin_idx].emplace_back(i);										///< Assigns `Vec` element to a cluster
-		argmin_idx = -1;															///< Sets \argmin index for the next loop
-		argmin_val = std::numeric_limits<unsigned long int>::max();					///< Sets \argmin value for the next loop
+		Classes[argmin_idx].emplace_back(i);						///< Assigns `Vec` element to a cluster
+		argmin_idx = -1;								///< Sets \argmin index for the next loop
+		argmin_val = std::numeric_limits<unsigned long int>::max();			///< Sets \argmin value for the next loop
 	}
 }
