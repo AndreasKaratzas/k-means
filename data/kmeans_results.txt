@@ -1,0 +1,3 @@
+Iteration: 1Convergence: inf
+Iteration: 2Convergence: 1
+Iteration: 3Convergence: 1
