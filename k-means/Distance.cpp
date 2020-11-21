@@ -14,12 +14,12 @@ long double eucl_diff(const std::array<float, Nv>& A, const std::array<float, Nv
 	long double eucl_diff = 0;
 	for (int i = 0; i < Nv; i += 1)													///< Loops through all `Nv` elements of the given arrays
 	{
-		long double point_diff = A[i] - B[i];										///< Computes element-wise difference
-		if (point_diff > std::numeric_limits<float>::max())							///< Checks for data overflow
+		long double point_diff = A[i] - B[i];											///< Computes element-wise difference
+		if (point_diff > std::numeric_limits<float>::max())									///< Checks for data overflow
 		{
-			point_diff = std::numeric_limits<float>::max();							///< Prevents data overflow
+			point_diff = std::numeric_limits<float>::max();									///< Prevents data overflow
 		}
-		long double point_diff_squared = point_diff * point_diff;					///< Squares difference
+		long double point_diff_squared = point_diff * point_diff;								///< Squares difference
 		eucl_diff += point_diff_squared;											///< Adds difference to `eucl_diff`
 	}
 	return eucl_diff;
@@ -41,12 +41,12 @@ long double convergence(const std::vector<std::array<float, Nv>>& curr_Center, c
 	long double convergence_sum = 0;												///< Initializes `convergence_sum` variable used to store the total additive difference between `curr_Center` and `prev_Center`
 	for (int i = 0; i < Nc; i += 1)													///< Loops through all centers
 	{
-		long double tmp_eucl_d = eucl_diff(curr_Center.at(i), prev_Center.at(i));	///< Computes element-wise Euclidean distance
-		convergence_sum += tmp_eucl_d > 1.0 ? tmp_eucl_d : 0.0;						///< Optimizes Convergence if error is close to defined threshold
-		if (convergence_sum > std::numeric_limits<double>::max())					///< Checks for number overflow
+		long double tmp_eucl_d = eucl_diff(curr_Center.at(i), prev_Center.at(i));						///< Computes element-wise Euclidean distance
+		convergence_sum += tmp_eucl_d > 1.0 ? tmp_eucl_d : 0.0;									///< Optimizes Convergence if error is close to defined threshold
+		if (convergence_sum > std::numeric_limits<double>::max())								///< Checks for number overflow
 		{
-			convergence_sum = std::numeric_limits<double>::max();					///< Prevents number overflow
-			break;																	///< Breaks loop because `convergence_sum` is maxed
+			convergence_sum = std::numeric_limits<double>::max();								///< Prevents number overflow
+			break;														///< Breaks loop because `convergence_sum` is maxed
 		}
 	}
 	return convergence_sum;
