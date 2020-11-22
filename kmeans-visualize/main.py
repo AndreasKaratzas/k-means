@@ -1,4 +1,5 @@
 
+import os
 import pandas
 import matplotlib.pyplot as plt
 
@@ -7,7 +8,7 @@ def kerberos():
     cols = ["X", "Y"]
     labels = ["Vec", "Center"]
     colors = ["r"]
-    file_dir = '../../Downloads/'
+    file_dir = os.getcwd()
     Vec = pandas.read_csv(file_dir + 'Vec.csv', names=cols, delimiter=None, engine='python')
     Center = pandas.read_csv(file_dir + 'Center.csv', names=cols, delimiter=None, engine='python')
 
