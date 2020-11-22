@@ -1,5 +1,5 @@
 CC = g++
-CXXFLAGS = -Wall -funroll-loops -lrt -Ofast -fopt-info-vec-optimized -funsafe-math-optimizations -march=native
+CXXFLAGS = -Wall -funroll-loops -lrt -Ofast -fopt-info-vec-optimized -funsafe-math-optimizations -march=native -std=c++17
 
 kmeans: kmeans.o Vec.o Class.o Center.o Distance.o Optimize.o Benchmark.o Interface.o Validation.o
 	$(CC) $(CXXFLAGS) -o kmeans kmeans.o Vec.o Class.o Center.o Distance.o Optimize.o Benchmark.o Interface.o Validation.o
