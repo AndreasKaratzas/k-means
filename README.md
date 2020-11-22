@@ -9,4 +9,4 @@ There are 3 main directories:
 * `kmeans-visualize`: This directory contains a *Python* script used for visualization while testing the main program
 * `png2gif`: This is a complementary script that concats all *PNG*s exported by the Python script to one GIF, like the above, helping with the visualization of the algorithm's progress
 
-The algorithm is not configured for parallelism. This will be done in the future. The algorithm converges in the minute, even with huge dataset ($10000 \cdot 1000$). There are instructions in Greek uploaded (`documentation.pdf`).
+The algorithm is not configured for parallelism. This will be done in the future. The algorithm converges in the minute, even with huge dataset (100,000 x 1,000). There are instructions in Greek uploaded (`documentation.pdf`).
