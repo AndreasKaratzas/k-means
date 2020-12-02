@@ -30,7 +30,7 @@ def kerberos():
                 plt.gca().add_artist(c)
         count += 1
     plt.legend(bbox_to_anchor=(1, 1), loc="upper left")
-    plt.savefig("kmeans" + str(filecount) + ".png")
+    plt.savefig("kmeans" + str(filecount) + ".png", dpi=300, bbox_inches='tight')
     plt.show()
 
     # new_center output
@@ -49,7 +49,7 @@ def kerberos():
             count += 1
         filecount += 1
         plt.legend(bbox_to_anchor=(1, 1), loc="upper left")
-        plt.savefig("kmeans" + str(filecount) + ".png")
+        plt.savefig("kmeans" + str(filecount) + ".png", dpi=300, bbox_inches='tight')
         plt.show()
 
 
